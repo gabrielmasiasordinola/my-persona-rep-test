@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       genero: 
-        type: string
+        type: choice
         description: Selecciona tu género
         options: 
         - Masculino
