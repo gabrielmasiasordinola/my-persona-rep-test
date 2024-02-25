@@ -29,8 +29,6 @@ on:
 jobs:
   greet:
     runs-on: ubuntu-latest
-    on: 
-
     steps:
     - name: Imprimir genero
       run: echo ${{ inputs.genero }}
