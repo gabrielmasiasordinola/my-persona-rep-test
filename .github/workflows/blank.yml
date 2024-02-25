@@ -25,9 +25,27 @@ on:
         type: string
         description: Appellidos
         required: true
+      universidad:
+        type: string
+        description: Dime donde estudiaste
+        required: true
+      profesion:
+        type: choice
+        description: Dime que estudiaste
+        required: true
+        options:
+          - medicina
+          - ing sistemas
+          - arquiectura
+          - derecho
+      chambeas:
+        type: string
+        description: Chambeas?
+        required: true
+        default: sí
 
 jobs:
-  greet:
+  datos:
     runs-on: ubuntu-latest
     steps:
     - name: Imprimir genero
@@ -38,3 +56,18 @@ jobs:
       run: echo ${{ inputs.nombre }}
     - name: Imprimir apellidos
       run: echo ${{ inputs.apellidos }}
+  
+  estudios:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Imprimir universidad
+      run: echo ${{ inputs.universidad }}
+    - name: Imprimir profesion
+      run: echo ${{ inputs.profesion }}
+    - name: Imprimir chamba
+      run: |
+        if ${{ inputs.chambeas }} == "sí"
+        then
+          echo "${{ inputs.nombre }} sí chambea"
+        fi
+
